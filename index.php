@@ -2,7 +2,7 @@
 echo "testing";
 require_once 'firebaseLib.php';
 // --- This is your Firebase URL
-$url = 'https://com.example.zach1.deadbolt/';
+$url = 'https://smart-deadbolt.firebaseio.com/';
 // --- Use your token from Firebase here
 $token = 'z6r78MuaafvpmcqAmEpzTQ0VI7kbYRV7mdEJgShz';
 // --- Here is your parameter from the http GET
