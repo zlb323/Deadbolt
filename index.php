@@ -14,7 +14,7 @@ echo "t";
 $firebasePath = '/';
 /// --- Making calls
 $fb = new fireBase($url, $token);
-$response = $fb->push($firebasePath, ["smart-deadbolt" => ["status" => $arduino_data]);
+$response = $fb->push($firebasePath, ["smart-deadbolt" => ["status" => $arduino_data]]);
 echo $response;
 echo "testst";
 sleep(2);
