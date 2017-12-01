@@ -1,21 +1,17 @@
 <?php
-echo "testing";
-require_once 'firebaseLib.php';
-// --- This is your Firebase URL
-$url = 'https://smart-deadbolt.firebaseio.com/';
-// --- Use your token from Firebase here
-$token = 'z6r78MuaafvpmcqAmEpzTQ0VI7kbYRV7mdEJgShz';
-// --- Here is your parameter from the http GET
-$arduino_data = $_GET['arduino_data'];
-echo $arduino_data;
-echo "t";
-// --- $arduino_data_post = $_POST['name'];
-// --- Set up your Firebase url structure here
-$firebasePath = '/';
-/// --- Making calls
-$fb = new fireBase($url, $token);
-$response = $fb->push($firebasePath, ["smart-deadbolt" => ["status" => $arduino_data]]);
-echo $response;
-echo "testst";
-sleep(2);
+require '.\vendor\autoload.php';
+use Kreait\Firebase\Configuration;
+use Kreait\Firebase\Firebase;
+
+$config = new Configuration();
+$config->setAuthConfigFile('smart-deadbolt-firebase-adminsdk-3x472-f785a41a6f.json');
+
+//$config->setFirebaseSecret('z6r78MuaafvpmcqAmEpzTQ0VI7kbYRV7mdEJgShz');
+
+$firebase = new Firebase('https://smart-deadbolt.firebaseio.com/', $config);
+echo $firebase->get('locked');
+echo $_GET['arduino_data'];
+$firebase->set([
+    'locked' => "t"
+    ], '');
 ?>
